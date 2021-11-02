@@ -1,24 +1,4 @@
 /**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
-
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
-*/
-
-/**
  * Define Global Variables
  * 
 */
@@ -34,8 +14,16 @@ const Section4 = document.querySelector('#section4');
  * Start Helper Functions
  * 
 */
-
-
+function AddActive(){
+    for (let y = 0; y<sections.length; y++){
+        const current = sections[y].getBoundingClientRect();
+        if (current.top <=150 && current.bottom >=300){
+            sections[y].classList.add("your-active-class");
+        } else{
+            sections[y].classList.remove("your-active-class");
+        }
+    }
+}
 
 /**
  * End Helper Functions
@@ -57,17 +45,7 @@ function CreateNav(sections, append){
 
 // Add class 'active' to section when near top of viewport
 const sections = document.body.getElementsByTagName('section');
-console.log(sections.length)
-document.addEventListener('scroll', function(){
-    for (let y = 0; y<sections.length; y++){
-        const current = sections[y].getBoundingClientRect();
-        if (current.top <=150 && current.bottom >=300){
-            sections[y].classList.add("your-active-class");
-        } else{
-            sections[y].classList.remove("your-active-class");
-        }
-    }
-});
+document.addEventListener('scroll', AddActive);
 
 // Scroll to anchor ID 
 function ScrollSection(listener, scroll2){
@@ -90,6 +68,3 @@ ScrollSection(s1, Section1);
 ScrollSection(s2, Section2);
 ScrollSection(s3, Section3);
 ScrollSection(s4, Section4);
-// Set sections as active
-
-
