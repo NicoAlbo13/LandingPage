@@ -58,8 +58,13 @@ function CreateNav(sections, append){
 // Add class 'active' to section when near top of viewport
 
 
-// Scroll to anchor ID using scrollTO event
-
+// Scroll to anchor ID 
+function ScrollSection(listener, scroll2){
+    listener.addEventListener('click', function(evt){
+        evt.preventDefault();
+        scroll2.scrollIntoView({block: "center", behavior: "smooth"});
+    });
+}
 
 /**
  * End Main Functions
@@ -68,15 +73,8 @@ function CreateNav(sections, append){
 */
 
 // Build menu 
-CreateNav(4, barList)
+CreateNav(4, barList);
 // Scroll to section on link click
-function ScrollSection(listener, scroll2){
-    listener.addEventListener('click', function(evt){
-        evt.preventDefault();
-        scroll2.scrollIntoView({block: "center", behavior: "smooth"});
-    });
-}
-
 ScrollSection(s1, Section1);
 ScrollSection(s2, Section2);
 ScrollSection(s3, Section3);
