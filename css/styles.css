@@ -109,6 +109,25 @@ section {
   color: #fff;
 }
 
+#back-up {
+  display: none;
+  position: fixed;
+  bottom: 0.6em;
+  right: 0.5em;
+  font-size: 4em;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 0;
+  color: #fff;
+  height: 1.2em;
+  text-align: center;
+  cursor: pointer;
+}
+
+#back-up a {
+  color: #fff;
+  text-decoration: none;
+}
+
 /* ---- Theme Rules ---- */
 /* Landing Container Styles */
 .landing__container {
