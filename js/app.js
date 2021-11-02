@@ -24,6 +24,11 @@
 */
 const barList = document.querySelector("#navbar__list");
 
+const Section1 = document.querySelector('#section1');
+const Section2 = document.querySelector('#section2');
+const Section3 = document.querySelector('#section3');
+const Section4 = document.querySelector('#section4');
+
 /**
  * End Global Variables
  * Start Helper Functions
@@ -44,9 +49,10 @@ function CreateNav(sections, append){
     for(let i = 1; i<=sections; i++){
         const newLi = document.createElement("li");
         newLi.innerHTML = "<a href='#section"+ i+"' class='menu__link'> Section "+ i +" </a>";
-    fragment.appendChild(newLi)
-}
-append.appendChild(fragment);
+        newLi.setAttribute("id", "s"+i)
+    fragment.appendChild(newLi);
+    }
+    append.appendChild(fragment);
 }
 
 // Add class 'active' to section when near top of viewport
@@ -64,7 +70,17 @@ append.appendChild(fragment);
 // Build menu 
 CreateNav(4, barList)
 // Scroll to section on link click
+function ScrollSection(listener, scroll2){
+    listener.addEventListener('click', function(evt){
+        evt.preventDefault();
+        scroll2.scrollIntoView({block: "center", behavior: "smooth"});
+    });
+}
 
+ScrollSection(s1, Section1);
+ScrollSection(s2, Section2);
+ScrollSection(s3, Section3);
+ScrollSection(s4, Section4);
 // Set sections as active
 
 
