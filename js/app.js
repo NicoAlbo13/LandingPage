@@ -22,7 +22,7 @@
  * Define Global Variables
  * 
 */
-
+const barList = document.querySelector("#navbar__list");
 
 /**
  * End Global Variables
@@ -39,7 +39,15 @@
 */
 
 // build the nav
-
+function CreateNav(sections, append){
+    const fragment = document.createDocumentFragment();
+    for(let i = 1; i<=sections; i++){
+        const newLi = document.createElement("li");
+        newLi.innerHTML = "<a href='#section"+ i+"' class='menu__link'> Section "+ i +" </a>";
+    fragment.appendChild(newLi)
+}
+append.appendChild(fragment);
+}
 
 // Add class 'active' to section when near top of viewport
 
@@ -54,7 +62,7 @@
 */
 
 // Build menu 
-
+CreateNav(4, barList)
 // Scroll to section on link click
 
 // Set sections as active
