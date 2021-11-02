@@ -56,7 +56,18 @@ function CreateNav(sections, append){
 }
 
 // Add class 'active' to section when near top of viewport
-
+const sections = document.body.getElementsByTagName('section');
+console.log(sections.length)
+document.addEventListener('scroll', function(){
+    for (let y = 0; y<sections.length; y++){
+        const current = sections[y].getBoundingClientRect();
+        if (current.top <=150 && current.bottom >=300){
+            sections[y].classList.add("your-active-class");
+        } else{
+            sections[y].classList.remove("your-active-class");
+        }
+    }
+});
 
 // Scroll to anchor ID 
 function ScrollSection(listener, scroll2){
