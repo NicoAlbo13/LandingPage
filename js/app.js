@@ -73,7 +73,7 @@ document.addEventListener('scroll', function(){
 function ScrollSection(listener, scroll2){
     listener.addEventListener('click', function(evt){
         evt.preventDefault();
-        scroll2.scrollIntoView({block: "center", behavior: "smooth"});
+        scroll2.scrollIntoView({block: "start", behavior: "smooth"});
     });
 }
 
