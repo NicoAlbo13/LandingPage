@@ -52,7 +52,7 @@ document.addEventListener('scroll', AddActive);
 function ScrollSection(listener, scroll2){
     listener.addEventListener('click', function(evt){
         evt.preventDefault();
-        scroll2.scrollIntoView({block: "nearest", behavior: "smooth"});
+        scroll2.scrollIntoView({block: "start", behavior: "smooth"});
     });
 }
 
@@ -78,5 +78,5 @@ document.addEventListener('scroll', function(evt){
 });
 BackUp.addEventListener('click', function(evt){
     evt.preventDefault();
-    PageTop.scrollIntoView({block: "start", behavior: "smooth"});
+    PageTop.scrollIntoView({block: "center", behavior: "smooth"});
 });
