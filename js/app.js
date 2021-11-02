@@ -24,7 +24,6 @@ function AddActive(){
         }
     }
 }
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -60,7 +59,6 @@ function ScrollSection(listener, scroll2){
  * Begin Events
  * 
 */
-
 // Build menu 
 CreateNav(4, barList);
 // Scroll to section on link click
