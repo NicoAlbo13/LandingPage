@@ -10,19 +10,30 @@ const Section3 = document.querySelector('#section3');
 const Section4 = document.querySelector('#section4');
 
 const BackUp = document.querySelector('#back-up');
-const PageTop = document.querySelector('#up')
+const PageTop = document.querySelector('#up');
+const links = document.getElementsByTagName('li');
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
 function AddActive(){
-    for (let y = 0; y<sections.length; y++){
-        const current = sections[y].getBoundingClientRect();
-        if (current.top <=150 && current.bottom >=300){
-            sections[y].classList.add("your-active-class");
-        } else{
-            sections[y].classList.remove("your-active-class");
+        for (const section of sections){
+        const current = section.getBoundingClientRect();
+        if (current.top <=200 && current.bottom >=300){
+            section.classList.add("your-active-class");
+            for (let z=0; z<links.length; z++){
+                if (links[z].className === section.getAttribute('id')){
+                    links[z].classList.add('active');
+                }
+            }
+        }else{
+            section.classList.remove("your-active-class");
+            for (let z=0; z<links.length; z++){
+                if (links[z].getAttribute('class').substring(0,8) === section.getAttribute('id')){
+                    links[z].classList.remove('active');
+                }
+            }
         }
     }
 }
@@ -39,6 +50,7 @@ function CreateNav(sections, append){
         const newLi = document.createElement("li");
         newLi.innerHTML = "<a href='#section"+ i+"' class='menu__link'> Section "+ i +" </a>";
         newLi.setAttribute("id", "s"+i)
+        newLi.setAttribute("class", "section"+i)
     fragment.appendChild(newLi);
     }
     append.appendChild(fragment);
